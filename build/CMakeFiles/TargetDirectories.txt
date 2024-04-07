@@ -1,3 +1,0 @@
-/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/YourExecutable.dir
-/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/edit_cache.dir
-/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/rebuild_cache.dir
