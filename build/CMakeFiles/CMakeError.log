@@ -1,0 +1,65 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_312d1/fast && make[1]: 进入目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM”
+/usr/bin/make  -f CMakeFiles/cmTC_312d1.dir/build.make CMakeFiles/cmTC_312d1.dir/build
+make[2]: 进入目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM”
+Building C object CMakeFiles/cmTC_312d1.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_312d1.dir/src.c.o -c /home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM/src.c
+Linking C executable cmTC_312d1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_312d1.dir/link.txt --verbose=1
+/usr/bin/cc -rdynamic CMakeFiles/cmTC_312d1.dir/src.c.o -o cmTC_312d1 
+/usr/bin/ld: CMakeFiles/cmTC_312d1.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/cmTC_312d1.dir/build.make:99：cmTC_312d1] 错误 1
+make[2]: 离开目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM”
+make[1]: *** [Makefile:127：cmTC_312d1/fast] 错误 2
+make[1]: 离开目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-3bnfWM”
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_5c15b/fast && make[1]: 进入目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N”
+/usr/bin/make  -f CMakeFiles/cmTC_5c15b.dir/build.make CMakeFiles/cmTC_5c15b.dir/build
+make[2]: 进入目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N”
+Building C object CMakeFiles/cmTC_5c15b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_5c15b.dir/CheckFunctionExists.c.o -c /home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N/CheckFunctionExists.c
+Linking C executable cmTC_5c15b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c15b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create -rdynamic CMakeFiles/cmTC_5c15b.dir/CheckFunctionExists.c.o -o cmTC_5c15b  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/cmTC_5c15b.dir/build.make:99：cmTC_5c15b] 错误 1
+make[2]: 离开目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N”
+make[1]: *** [Makefile:127：cmTC_5c15b/fast] 错误 2
+make[1]: 离开目录“/home/kt/CLionProjects/ThreadPool/build/CMakeFiles/CMakeScratch/TryCompile-TR6O6N”
+
+
+
